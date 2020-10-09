@@ -1,0 +1,10 @@
+vendor
+build
+composer.phar
+composer.lock
+.phpunit.result.cache
+report
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+testbench/
