@@ -50,5 +50,8 @@
                 "Lumki": "Kineticamobile\\Lumki\\Facades\\Lumki"
             }
         }
+    },
+    "scripts": {
+        "test": "phpunit --testdox"
     }
 }
