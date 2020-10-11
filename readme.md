@@ -20,17 +20,13 @@ Laravel Users Management to Laravel 8 Jetstream (Using [Spatie/LaravelPermission
 
 ## Installation
 
-Via Composer adding repository before
-
-``` bash
-$ composer config repositories.lumki vcs https://github.com/kineticamobile/lumki
-```
+Via Composer
 
 ``` bash
 $ composer require kineticamobile/lumki
 ```
 
-## Setup on Laravel 8 Jetstream fresh install
+## Setup over Laravel 8 Jetstream on fresh install
 
 ``` bash
 $ php artisan lumki:setup
