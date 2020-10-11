@@ -1,11 +1,6 @@
 # Lumki
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
-
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+Laravel Users Management to Laravel 8 Jetstream (Using [Spatie/LaravelPermissions](https://github.com/spatie/laravel-permission) & [Lab404/LaravelImpersonate]([changelog.md](https://github.com/404labfr/laravel-impersonate))). Take a look at [contributing.md](contributing.md) to see a to do list.
 
 ## Functionalities
 
@@ -42,7 +37,7 @@ $ composer require kineticamobile/lumki
 ## Setup on Laravel 8 Jetstream fresh install
 
 ``` bash
-$ composer require kineticamobile/lumki
+$ php artisan lumki:setup
 ```
 
 ## Usage
