@@ -42,19 +42,19 @@ $ php artisan lumki:setup
 
 ## Explained setup
 
-### Publish spatie/laravel-permissions
+### Publish spatie/laravel-permissions
 
 ``` bash
 $ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 ```
 
-### Publish lab404/laravel-permissions
+### Publish lab404/laravel-permissions
 
 ``` bash
 $ php artisan vendor:publish --tag=impersonate
 ```
 
-### Add permissions traits to Models/User
+### Add permissions traits to Models/User
 
 ``` php
 Lumki::insertLineAfter(
@@ -72,7 +72,7 @@ Lumki::insertLineAfter(
 );
 ```
 
-### Add impersonate traits to Models/User
+### Add impersonate traits to Models/User
 
 ``` php
 Lumki::insertLineAfter(
@@ -89,13 +89,13 @@ Lumki::insertLineAfter(
     "use Impersonate;"
 );
 ```
-### Run migrations
+### Run migrations
 
 ``` bash
 $ php artisan migrate
 ```
 
-### Add Impersonate Routes 
+### Add Impersonate Routes 
 
 ``` php
 Lumki::insertLineBefore(
