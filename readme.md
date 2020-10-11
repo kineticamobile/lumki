@@ -1,6 +1,6 @@
 # Lumki
 
-Laravel Users Management to Laravel 8 Jetstream (Using [Spatie/LaravelPermissions](https://github.com/spatie/laravel-permission) & [Lab404/LaravelImpersonate]([changelog.md](https://github.com/404labfr/laravel-impersonate))). Take a look at [contributing.md](contributing.md) to see a to do list.
+Laravel Users Management to Laravel 8 Jetstream (Using [Spatie/LaravelPermissions](https://github.com/spatie/laravel-permission) & [Lab404/LaravelImpersonate](https://github.com/404labfr/laravel-impersonate)).
 
 ## Functionalities
 
@@ -38,6 +38,97 @@ $ composer require kineticamobile/lumki
 
 ``` bash
 $ php artisan lumki:setup
+```
+
+## Explained setup
+
+### Publish spatie/laravel-permissions
+
+``` bash
+$ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
+### Publish lab404/laravel-permissions
+
+``` bash
+$ php artisan vendor:publish --tag=impersonate
+```
+
+### Add permissions traits to Models/User
+
+``` php
+Lumki::insertLineAfter(
+    app_path("Models/User.php"),
+    "use Laravel\Jetstream\HasProfilePhoto;",
+    "use Spatie\Permission\Traits\HasRoles;"
+);
+```
+
+``` php
+Lumki::insertLineAfter(
+    app_path("Models/User.php"),
+    "use HasProfilePhoto;",
+    "use HasRoles;"
+);
+```
+
+### Add impersonate traits to Models/User
+
+``` php
+Lumki::insertLineAfter(
+    app_path("Models/User.php"),
+    "use Spatie\Permission\Traits\HasRoles;",
+    "use Lab404\Impersonate\Models\Impersonate;"
+);
+```
+
+``` php
+Lumki::insertLineAfter(
+    app_path("Models/User.php"),
+    "use HasRoles;",
+    "use Impersonate;"
+);
+```
+### Run migrations
+
+``` bash
+$ php artisan migrate
+```
+
+### Add Impersonate Routes 
+
+``` php
+Lumki::insertLineBefore(
+        base_path("routes/web.php"),
+        "Route::get('/', function () {",
+        "Route::impersonate();\n"
+);
+```
+
+### Add Lumki menu items in User's menu
+
+``` php
+Lumki::insertLineBefore(
+        resource_path('views/navigation-dropdown.blade.php'),
+        "@if (Laravel\Jetstream\Jetstream::hasApiFeatures())",
+        "\n@lumki\n"
+);
+```
+
+### Add roles/permissions
+``` php
+$r1 = Role::firstOrCreate(["name" => "Superadmin"]);
+$r2 = Role::firstOrCreate(["name" => "Admin"]);
+$r3 = Role::firstOrCreate(["name" => "User"]);
+
+$p1 = Permission::firstOrCreate(['name' => 'manage users']);
+
+$r1->givePermissionTo('manage users');
+
+$user = User::first();
+$user->assignRole($r1);
+$user->assignRole($r2);
+$user->assignRole($r3);
 ```
 
 ## Usage
