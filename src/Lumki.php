@@ -6,6 +6,17 @@ use Illuminate\Support\Str;
 
 class Lumki
 {
+
+    public static function insertLineAfter($path, $needle, $replace)
+    {
+        return self::insertLine($path, $needle, $replace,true);
+    }
+
+    public static function insertLineBefore($path, $needle, $replace)
+    {
+        return self::insertLine($path, $needle, $replace,false);
+    }
+
     public static function insertLine($path, $needle, $insert, $after = true)
     {
         if( ! file_exists($path) ){

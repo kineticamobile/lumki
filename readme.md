@@ -7,6 +7,26 @@
 
 This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 
+## Functionalities
+
+| Functionality         | Working | Test  |
+| --------------------- |:-------------:|:-----:|
+| List Users            | ⨯       | ⨯     |
+| -pagination           | ⨯       | ⨯     |
+| -impersonation link   | ⨯       | ⨯     |
+| Edit User Roles       | ⨯       | ⨯     |
+| Command               | ⨯       | ⨯     |
+| -publish Permissions  | ⨯       | ⨯     |
+| -publish Impersonate  | ⨯       | ⨯     |
+| -traits Permissions   | ⨯       | ⨯     |
+| -traits Impersonate   | ⨯       | ⨯     |
+| -run migrations       | ⨯       | ⨯     |
+| -Routes Impersonate   | ⨯       | ⨯     |
+| -Add user menu        | ⨯       | ⨯     |
+| -Create Roles/Perm    | ⨯       | ⨯     |
+
+✓/⨯
+
 ## Installation
 
 Via Composer

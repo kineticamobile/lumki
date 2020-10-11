@@ -4,7 +4,9 @@ namespace Tests\Unit;
 
 use Illuminate\Support\Str;
 use Kineticamobile\Lumki\Lumki;
-use Orchestra\Testbench\TestCase;
+use Tests\TestCase;
+
+// use Orchestra\Testbench\TestCase;
 
 class LumkiTest extends TestCase
 {
@@ -64,5 +66,25 @@ class LumkiTest extends TestCase
         $response = Lumki::insertLine($this->filepath, $addAfterLine, $lineToAdd, false);
 
         $this->assertEquals("Unmodified Content. '42' line not added", $response);
+    }
+
+    public function testItShouldShowInfoIfLineAddedToFileAfterWithCustomFunction()
+    {
+        $lineToAdd = "42";
+        $addAfterLine = "2";
+        $response = Lumki::insertLineAfter($this->filepath, $addAfterLine, $lineToAdd);
+
+        $this->assertEquals("Line Added '$lineToAdd'", $response);
+        $this->assertTrue(Str::contains(file_get_contents($this->filepath), "$addAfterLine\n$lineToAdd"));
+    }
+
+    public function testItShouldShowInfoIfLineAddedToFileBeforeWithCustomFunction()
+    {
+        $lineToAdd = "42";
+        $addBeforeLine = "2";
+        $response = Lumki::insertLineBefore($this->filepath, $addBeforeLine, $lineToAdd);
+
+        $this->assertEquals("Line Added '$lineToAdd'", $response);
+        $this->assertTrue(Str::contains(file_get_contents($this->filepath), "$lineToAdd\n$addBeforeLine"));
     }
 }

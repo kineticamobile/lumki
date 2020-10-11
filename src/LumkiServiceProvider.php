@@ -48,7 +48,7 @@ class LumkiServiceProvider extends ServiceProvider
     {
         return ['lumki'];
     }
-    
+
     /**
      * Console-specific booting.
      *
@@ -77,6 +77,8 @@ class LumkiServiceProvider extends ServiceProvider
         ], 'lumki.views');*/
 
         // Registering package commands.
-        // $this->commands([]);
+        $this->commands([
+            Commands\SetupCommand::class,
+        ]);
     }
 }
