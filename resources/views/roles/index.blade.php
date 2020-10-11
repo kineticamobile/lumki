@@ -1,0 +1,45 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Roles Management') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="space-y-10">
+                    <div class="px-4 py-5 sm:p-6 bg-white shadow sm:rounded-lg">
+                        <div class="space-y-6">
+                        @foreach ($roles as $role)
+
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        {{ $role->name }}
+                                    </div>
+                                    <div>
+                                        {{ $role->getPermissionNames()->join(", ") }}
+                                    </div>
+                                    <div class="flex items-center">
+                                        <button class="cursor-pointer ml-6 text-sm text-blue-500 focus:outline-none">
+                                            <a href="{{ route("lumki.role.permissions.edit", $role) }}">{{ __('Edit Permissions') }}</a>
+                                        </button>
+                                    </div>
+                                </div>
+
+                        @endforeach
+                        </div>
+
+                    </div>
+                </div>
+                <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    {{ $roles->links() }}
+                    <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                        <a href="{{ route("lumki.role.create") }}">{{ __('Create Role') }}</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</x-app-layout>

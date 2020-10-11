@@ -4,21 +4,17 @@ Laravel Users Management to Laravel 8 Jetstream (Using [Spatie/LaravelPermission
 
 ## Functionalities
 
-| Functionality         | Working | Test  |
-| --------------------- |:-------------:|:-----:|
-| List Users            | ✓       | ⨯     |
-| -pagination           | ✓       | ⨯     |
-| -impersonation link   | ✓       | ⨯     |
-| Edit User Roles       | ✓       | ⨯     |
-| Command               | -       | ⨯     |
-| -publish Permissions  | ✓       | ⨯     |
-| -publish Impersonate  | ✓       | ⨯     |
-| -traits Permissions   | ✓       | ⨯     |
-| -traits Impersonate   | ✓       | ⨯     |
-| -run migrations       | ✓       | ⨯     |
-| -Routes Impersonate   | ✓       | ⨯     |
-| -Add user menu        | ✓       | ⨯     |
-| -Create Roles/Perm    | ✓       | ⨯     |
+| Functionality          | Working | Test  |
+| ---------------------- |:-------:|:-----:|
+| User - Index           | ✓       | ⨯     |
+| User - Edit Roles      | ✓       | ⨯     |
+| Role - Index           | ✓       | ⨯     |
+| Role - Edit Permissions| ✓       | ⨯     |
+| Role - Create          | ✓       | ⨯     |
+| Permission - Index     | ✓       | ⨯     |
+| Permission - Create    | ✓       | ⨯     |
+| Blade @lumki           | ✓       | ⨯     |
+| Command to Setup       | ✓       | ⨯     |
 
 ✓/⨯
 
