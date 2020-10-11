@@ -11,25 +11,35 @@ This is where your description should go. Take a look at [contributing.md](contr
 
 | Functionality         | Working | Test  |
 | --------------------- |:-------------:|:-----:|
-| List Users            | ⨯       | ⨯     |
-| -pagination           | ⨯       | ⨯     |
-| -impersonation link   | ⨯       | ⨯     |
-| Edit User Roles       | ⨯       | ⨯     |
-| Command               | ⨯       | ⨯     |
-| -publish Permissions  | ⨯       | ⨯     |
-| -publish Impersonate  | ⨯       | ⨯     |
-| -traits Permissions   | ⨯       | ⨯     |
-| -traits Impersonate   | ⨯       | ⨯     |
-| -run migrations       | ⨯       | ⨯     |
-| -Routes Impersonate   | ⨯       | ⨯     |
-| -Add user menu        | ⨯       | ⨯     |
-| -Create Roles/Perm    | ⨯       | ⨯     |
+| List Users            | ✓       | ⨯     |
+| -pagination           | ✓       | ⨯     |
+| -impersonation link   | ✓       | ⨯     |
+| Edit User Roles       | ✓       | ⨯     |
+| Command               | -       | ⨯     |
+| -publish Permissions  | ✓       | ⨯     |
+| -publish Impersonate  | ✓       | ⨯     |
+| -traits Permissions   | ✓       | ⨯     |
+| -traits Impersonate   | ✓       | ⨯     |
+| -run migrations       | ✓       | ⨯     |
+| -Routes Impersonate   | ✓       | ⨯     |
+| -Add user menu        | ✓       | ⨯     |
+| -Create Roles/Perm    | ✓       | ⨯     |
 
 ✓/⨯
 
 ## Installation
 
-Via Composer
+Via Composer adding repository before
+
+``` bash
+$ composer config repositories.lumki vcs https://github.com/kineticamobile/lumki
+```
+
+``` bash
+$ composer require kineticamobile/lumki
+```
+
+## Setup on Laravel 8 Jetstream fresh install
 
 ``` bash
 $ composer require kineticamobile/lumki
