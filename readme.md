@@ -4,21 +4,33 @@ Laravel Users Management to Laravel 8 Jetstream (Using [Spatie/LaravelPermission
 
 ## Functionalities
 
-Impersonation / Leave:
+<details open="true">
+<summary>Impersonation / Leave:</summary>
 
 ![Gif showing impersonation][impersonation_gif]
 
-Add Role To User: 
+</details>
+
+<details>
+<summary>Add Role To User: </summary>
 
 ![Gif showing hot to add Role to User][users_gif]
 
-Roles - Create and associate Permissions: 
+</details>
+
+<details>
+<summary>Roles - Create and associate Permissions: </summary>
 
 ![Gif adding new Roles and adding permissions to Role][roles_gif]
 
-Permissions - Index and create new: 
+</details>
+
+<details>
+<summary>Permissions - Index and create new:  </summary>
 
 ![Gif creating new permissions][permissions_gif]
+
+</details>
 
 [impersonation_gif]: assets/user_impersonation_leave.gif
 [users_gif]: assets/users_add_role.gif
