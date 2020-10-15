@@ -59,7 +59,7 @@ Via Composer
 $ composer require kineticamobile/lumki
 ```
 
-## Setup over Laravel 8 Jetstream on fresh install
+## Setup over Laravel 8 Jetstream at least one User registered to associate permissions
 
 ``` bash
 $ php artisan lumki:setup
