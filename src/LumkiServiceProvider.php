@@ -92,7 +92,7 @@ class LumkiServiceProvider extends ServiceProvider
                   '@can(\'manage users\') '
                     . '<div class="block px-4 py-2 text-xs text-gray-400">Lumki</div>'
 
-                    . '<a href="{{ route(\'lumki.index\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'
+                    . '<a href="{{ route(\'lumki.users.index\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'
                         . '{{ __(\'Users\') }}'
                     . '</a>'
                     . '<a href="{{ route(\'lumki.roles.index\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'

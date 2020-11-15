@@ -158,15 +158,40 @@ $user->assignRole($r3);
 
 ## Usage
 
+### Customizable prefix for your routes
+
+To change the prefix `lumki` in your routes you must publish the configuration
+
+``` bash
+$ php artisan vendor:publish --tag=lumki.config 
+```
+
+Now, you can edit the file `config/lumki.php` and change the prefix from 'lumki' to whatever you want, empty string allowed, if this field is null 'lumki' is set as default value.
+
+### Error 'GuardDoesNotMatch'
+
+If you are struggling with the error of GuardDoesNotMatch could be that you have modified the provider in your `config/auth.php` file
+
+In order to solve this problem you can specify the guard name of the model.
+
+Eg: If you are using User Model but with an ldap connection using LdapRecord you can resolve this problem adding the code above in your User Model
+
+``` php
+class User extends Authenticatable
+{
+    // ...
+
+    public function guardName(){
+        return "web";
+    }
+}
+
+
+```
+
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
 
 ## Contributing
 
