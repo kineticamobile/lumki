@@ -1,5 +1,6 @@
 <?php
 
 return [
-    "prefix" => 'lumki'
+    "prefix" => 'lumki',
+    "middleware" => 'auth:sanctum'
 ];

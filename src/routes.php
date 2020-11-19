@@ -21,8 +21,9 @@ use Spatie\Permission\Models\Role;
 */
 
 $prefix = config('lumki.prefix') ?? "lumki";
+$middleware = config('lumki.middleware') ?? "auth:sanctum";
 
-Route::prefix($prefix)->middleware(['web','auth:sanctum','can:manage users'])->group(function () {
+Route::prefix($prefix)->middleware(['web',$middleware,'can:manage users'])->group(function () {
 
     // USERS
 
