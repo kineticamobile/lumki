@@ -2,12 +2,12 @@
 
 namespace Kineticamobile\Lumki\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -31,7 +31,8 @@ class UserController extends Controller
     public function create()
     {
         return view('lumki::users.create', [
-            'roles' => Role::all()
+            'roles' => Role::all(),
+            'custom_fields' => config('lumki.custom_fields')
         ]);
     }
 
@@ -43,18 +44,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-
-        $user=User::create([
+        $data = [
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
-        ]);
+        ];
+
+        foreach (config('lumki.custom_fields') as $item) {
+            $data[$item['name']] = $request->{$item['name']};
+        }
+
+        $user = User::create($data);
         $user->syncRoles(request('roles'));
 
         return redirect(route('lumki.users.index'));
@@ -84,7 +89,8 @@ class UserController extends Controller
     {
         return view('lumki::users.edit', [
             'user' => $user,
-            'roles' => Role::all()
+            'roles' => Role::all(),
+            'custom_fields' => config('lumki.custom_fields')
         ]);
     }
 
@@ -97,17 +103,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $rules=[
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id]
         ];
-        if($request->filled('password')){
-            $rules['password']=['sometimes','required', 'string', 'min:8', 'confirmed'];
+        if ($request->filled('password')) {
+            $rules['password'] = ['sometimes', 'required', 'string', 'min:8', 'confirmed'];
         }
         $validatedData = $request->validate($rules);
-        if($request->filled('password')){
-            $validatedData['password']=Hash::make($validatedData['password']);
+        if ($request->filled('password')) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
         }
+        foreach (config('lumki.custom_fields') as $item) {
+            $validatedData[$item['name']] = $request->{$item['name']};
+        }
+
         $user->update($validatedData);
         $user->syncRoles(request('roles'));
         return redirect()->route('lumki.users.index');
