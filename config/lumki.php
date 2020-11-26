@@ -2,5 +2,5 @@
 
 return [
     "prefix" => 'lumki',
-    "middleware" => 'auth:sanctum'
+    "middleware" => ['web','auth:sanctum','can:manage users']
 ];
