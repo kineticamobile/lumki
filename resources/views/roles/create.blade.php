@@ -4,7 +4,7 @@
             {{ __('Roles Management') }}
         </h2>
     </x-slot>
-    <form method="POST" action="{{ route("lumki.role.store") }}">
+    <form method="POST" action="{{ route('lumki.roles.store') }}">
         @csrf
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
