@@ -4,7 +4,7 @@
             {{ __('Permissions Management') }}
         </h2>
     </x-slot>
-    <form method="POST" action="{{ route("lumki.permission.store") }}">
+    <form method="POST" action="{{ route('lumki.permissions.store') }}">
         @csrf
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

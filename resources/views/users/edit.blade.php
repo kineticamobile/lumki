@@ -4,7 +4,7 @@
             {{ __('User Management') }} - {{ $user->name }}
         </h2>
     </x-slot>
-    <form method="POST" action="{{ route("lumki.user.roles.update", $user) }}">
+    <form method="POST" action="{{ route('lumki.users.update', $user) }}">
         @csrf
         @method("PUT")
         <div class="py-12">
