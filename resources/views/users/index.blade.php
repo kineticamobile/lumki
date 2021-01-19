@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('User Management') }}
+            {{ __('lumki::ui.manage_users') }}
         </h2>
     </x-slot>
 
@@ -22,10 +22,10 @@
                                     </div>
                                     <div class="flex items-center">
                                         <button class="cursor-pointer ml-6 text-sm text-blue-500 focus:outline-none">
-                                            <a href="{{ route('lumki.users.edit', $user) }}">{{ __('Edit Roles') }}</a>
+                                            <a href="{{ route('lumki.users.edit', $user) }}">{{ __('lumki::ui.edit_roles') }}</a>
                                         </button>
                                         <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none">
-                                            <a href="{{ route('impersonate', $user->id) }}">Impersonate</a>
+                                            <a href="{{ route('impersonate', $user->id) }}">{{ __('lumki::ui.impersonate') }}</a>
                                         </button>
                                     </div>
                                 </div>

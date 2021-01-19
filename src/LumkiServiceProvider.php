@@ -14,7 +14,7 @@ class LumkiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'kineticamobile');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lumki');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'lumki');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
@@ -74,9 +74,9 @@ class LumkiServiceProvider extends ServiceProvider
         ], 'lumki.views');*/
 
         // Publishing the translation files.
-        /*$this->publishes([
+        $this->publishes([
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/kineticamobile'),
-        ], 'lumki.views');*/
+        ], 'lumki.views');
 
         // Registering package commands.
         $this->commands([
@@ -93,19 +93,19 @@ class LumkiServiceProvider extends ServiceProvider
                     .'<div class="block px-4 py-2 text-xs text-gray-400">Lumki</div>'
 
                     .'<a href="{{ route(\'lumki.users.index\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'
-                        .'{{ __(\'Users\') }}'
+                        .'{{ __(\'lumki::ui.users\') }}'
                     .'</a>'
                     .'<a href="{{ route(\'lumki.roles.index\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'
-                        .'{{ __(\'Roles\') }}'
+                        .'{{ __(\'lumki::ui.roles\') }}'
                     .'</a>'
                     .'<a href="{{ route(\'lumki.permissions.index\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'
-                        .'{{ __(\'Permissions\') }}'
+                        .'{{ __(\'lumki::ui.permissions\') }}'
                     .'</a>'
                 .' @endcan '
                 .'@impersonating'
                     .'<div class="border-t border-gray-100"></div>'
                     .'<a href="{{ route(\'impersonate.leave\') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">'
-                        .'{{ __(\'Leave impersonation\') }}'
+                        .'{{ __(\'lumki::ui.leave_impersonation\') }}'
                     .'</a>'
                 .'@endImpersonating'
             );

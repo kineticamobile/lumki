@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Roles Management') }}
+            {{ __('lumki::ui.manage_roles') }}
         </h2>
     </x-slot>
 
@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="flex items-center">
                                         <button class="cursor-pointer ml-6 text-sm text-blue-500 focus:outline-none">
-                                            <a href="{{ route('lumki.roles.edit', $role) }}">{{ __('Edit Permissions') }}</a>
+                                            <a href="{{ route('lumki.roles.edit', $role) }}">{{ __('lumki::ui.edit_permissions') }}</a>
                                         </button>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                     {{ $roles->links() }}
                     <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
-                        <a href="{{ route('lumki.roles.create') }}">{{ __('Create Role') }}</a>
+                        <a href="{{ route('lumki.roles.create') }}">{{ __('lumki::ui.create_role') }}</a>
                     </button>
                 </div>
             </div>
