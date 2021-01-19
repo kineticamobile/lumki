@@ -38,7 +38,7 @@ class SetupCommand extends Command
     {
         // Publicar migraciones de Spatie/Laravel permissions
         $this->askStep(
-            '¿Publicar migraciones de Spatie\Permission\PermissionServiceProvider?',
+            __("lumki::cmd.publish_spatie_migrations"),
             function () {
                 $this->call('vendor:publish', [
                     '--provider' => 'Spatie\Permission\PermissionServiceProvider'
@@ -47,7 +47,7 @@ class SetupCommand extends Command
         );
         // Publicar configuracion de Lab404/Impersonate permissions
         $this->askStep(
-            '¿Publicar configuracion de Lab404\Impersonate\ImpersonateServiceProvider?',
+            __("lumki::cmd.publish_lab404_impersonate_configuration"),
             function () {
                 $this->call('vendor:publish', [
                     '--provider' => 'Lab404\Impersonate\ImpersonateServiceProvider'
@@ -56,7 +56,7 @@ class SetupCommand extends Command
         );
         // Migrar
         $this->askStep(
-            '¿Ejecutar migraciones ahora?',
+            __("lumki::cmd.run_migrations_now"),
             function () {
                 $this->call('migrate');
             }
@@ -64,7 +64,7 @@ class SetupCommand extends Command
         // Model User
         // Añadir Trait/Use Spatie\Permission\Traits\HasRoles after use Laravel\Jetstream\HasProfilePhoto;;
         $this->askStep(
-            '¿Añadir Trait HasRole de Laravel Permission a Models/User?',
+            __("lumki::cmd.add_trait_hasrole_user"),
             function () {
                 $this->info(
                     Lumki::insertLineAfter(
@@ -83,7 +83,7 @@ class SetupCommand extends Command
         );
         // Añadir Trait/Use Lab404\Impersonate\Models\Impersonate; after Spatie\Permission\Traits\HasRoles
         $this->askStep(
-            '¿Añadir Trait Impersonate de Laravel Permission a Models/User?',
+            __("lumki::cmd.add_trait_impersonate_user"),
             function () {
                 $this->info(
                     Lumki::insertLineAfter(
@@ -103,7 +103,7 @@ class SetupCommand extends Command
 
         // Añadir Rutas de Impersonate
         $this->askStep(
-            '¿Añadir Rutas de Impersonate',
+            __("lumki::cmd.add_impersonate_routes"),
             function () {
                 $this->info(
                     Lumki::insertLineBefore(
@@ -116,7 +116,7 @@ class SetupCommand extends Command
 
         // Añadir directiva @lumki al menu del usuario
         $this->askStep(
-            '¿Añadir Menú de acceso en el desplegable del usuario',
+            __("lumki::cmd.add_links_user_menu"),
             function () {
                 $this->info(
                     Lumki::insertLineBefore(
@@ -129,7 +129,7 @@ class SetupCommand extends Command
 
         // Añadir roles, permisos
         $this->askStep(
-            '¿Añadir Roles Superadmin, Admin, User?',
+            __("lumki::cmd.add_roles"),
             function () {
                 $r1 = Role::firstOrCreate(["name" => "Superadmin"]);
                 $r2 = Role::firstOrCreate(["name" => "Admin"]);
