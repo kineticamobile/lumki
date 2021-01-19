@@ -120,7 +120,7 @@ class SetupCommand extends Command
             function () {
                 $this->info(
                     Lumki::insertLineBefore(
-                        resource_path('views/navigation-dropdown.blade.php'),
+                        resource_path('views/navigation-menu.blade.php'),
                         "@if (Laravel\Jetstream\Jetstream::hasApiFeatures())",
                         "\n@lumki\n")
                 );
