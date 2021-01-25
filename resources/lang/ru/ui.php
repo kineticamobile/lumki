@@ -17,13 +17,8 @@ return [
     'edit_permissions' => 'Права',
     'create_role' => 'Добавить роль',
     'placeholder_role' => 'Название роли',
-    'table_role' => 'Роль',
-    'table_permissions' => 'Права',
-    'empty_permissions' => 'Не найдено ни одного права',
 
     'manage_users' => 'Управление пользователями',
     'edit_roles' => 'Роли',
     'impersonate' => 'Имитировать',
-    'table_name' => 'Имя пользователя',
-    'table_roles' => 'Роли',
 ];

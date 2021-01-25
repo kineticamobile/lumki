@@ -16,8 +16,8 @@
                             @foreach ($permissions as $permission)
                                 <div class="flex items-center justify-between">
                                     <label class="flex items-center">
-                                        <input class="h-5 w-5 text-gray-800 border rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:text-gray-700 active:text-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" name="permissions[]" type="checkbox" value="{{ $permission->name }}" {{ $role->getPermissionNames()->contains($permission->name) ? "checked='checked'":"" }}>
-                                        <span class="ml-2 text-sm text-gray-700">{{ $permission->name }}</span>
+                                        <input name="permissions[]" type="checkbox" class="form-checkbox" value="{{ $permission->name }}" {{ $role->getPermissionNames()->contains($permission->name) ? "checked='checked'":"" }}>
+                                        <span class="ml-2 text-sm text-gray-600">{{ $permission->name }}</span>
                                     </label>
                                 </div>
                             @endforeach
