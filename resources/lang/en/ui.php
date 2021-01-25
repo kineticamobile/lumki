@@ -17,8 +17,13 @@ return [
     'edit_permissions' => 'Edit Permissions',
     'create_role' => 'Create Role',
     'placeholder_role' => 'Name of the new Role',
+    'table_role' => 'Role',
+    'table_permissions' => 'Permissions',
+    'empty_permissions' => 'Permissions are empty',
 
     'manage_users' => 'Manage Users',
     'edit_roles' => 'Edit Roles',
     'impersonate' => 'Impersonate',
+    'table_name' => 'User',
+    'table_roles' => 'Roles',
 ];
