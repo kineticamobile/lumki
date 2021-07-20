@@ -14,7 +14,8 @@
 */
 
 $prefix = config('lumki.prefix') ?? "lumki";
-$middleware = config('lumki.middleware') ?? ["auth:sanctum",'web','can:manage users'];
+$lumkiPermission = config('lumki.lumkiPermission') ?? "manage users";
+$middleware = config('lumki.middleware') ?? ["auth:sanctum","web","can:$lumkiPermission"];
 
 Route::prefix($prefix)
     ->namespace("Kineticamobile\Lumki\Controllers")

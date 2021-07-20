@@ -1,8 +1,15 @@
 <?php
 
+$lumkiPermission = "manage users";
+
 return [
     "prefix" => 'lumki',
-    "middleware" => ['web','auth:sanctum','can:manage users'],
+    "lumkiPermission" => $lumkiPermission,
+    "middleware" => [
+        "web",
+        "auth:sanctum",
+        "can:$lumkiPermission"
+    ],
     'custom_fields' => [
         // [
         //     'type' => 'text',
