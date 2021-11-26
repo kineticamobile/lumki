@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         return view('lumki::users.index', [
-            'users' => User::orderBy('name')->paginate(10)
+            'users' => User::orderBy('name')->where('id', '!=', auth()->user()->id)->paginate(10)
         ]);
     }
 
