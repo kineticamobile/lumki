@@ -1,6 +1,9 @@
 # Changelog
 
 All notable changes to `Lumki` will be documented in this file.
+## Version 0.1.11
+
+- Laravel 9 compatibility
 
 ## Version 0.1.3
 

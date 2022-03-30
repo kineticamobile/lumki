@@ -1,6 +1,6 @@
 {
     "name": "kineticamobile/lumki",
-    "description": "Laravel User Management for Laravel 8 with Jetstream",
+    "description": "Laravel User Management for Laravel 9 with Jetstream",
     "license": "MIT",
     "authors": [
         {
@@ -21,7 +21,7 @@
 
     ],
     "homepage": "https://github.com/kineticamobile/lumki",
-    "keywords": ["Laravel", "Lumki", "Users Management", "Laravel 8"],
+    "keywords": ["Laravel", "Lumki", "Users Management", "Laravel 9"],
     "require": {
         "illuminate/support": "~5|~6|~7|~8|~9",
         "spatie/laravel-permission": "^3.0|^4.0|^5.0",
