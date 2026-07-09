@@ -24,11 +24,14 @@ class Lumki
         }
 
         $content = file_get_contents($path);
-        if(Str::contains($content, $insert)){
+        $eol = Str::contains($content, "\r\n") ? "\r\n" : "\n";
+        $normalizedContent = str_replace("\r\n", "\n", $content);
+
+        if(Str::contains($normalizedContent, $insert)){
             return "The line already exists";
         }
 
-        $contentToReplace = collect(explode("\n",$content))->map(
+        $contentToReplaceNormalized = collect(explode("\n",$normalizedContent))->map(
             function ($line) use($needle, $insert, $after){
                 if(Str::contains($line, $needle)){
                     return $after ? "$line\n$insert":"$insert\n$line";
@@ -37,8 +40,12 @@ class Lumki
             }
         )->join("\n");
 
-        if($contentToReplace != $content){
-            file_put_contents($path, $contentToReplace);
+        if($contentToReplaceNormalized != $normalizedContent){
+            $contentToWrite = $eol === "\r\n"
+                ? str_replace("\n", "\r\n", $contentToReplaceNormalized)
+                : $contentToReplaceNormalized;
+
+            file_put_contents($path, $contentToWrite);
             return "Line Added '$insert'";
         }else{
             return "Unmodified Content. '$insert' line not added";

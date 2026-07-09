@@ -6,8 +6,6 @@ use Illuminate\Support\Str;
 use Kineticamobile\Lumki\Lumki;
 use Tests\TestCase;
 
-// use Orchestra\Testbench\TestCase;
-
 class LumkiTest extends TestCase
 {
 
@@ -18,6 +16,8 @@ class LumkiTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->nonExistentFilePath = __DIR__ . '/checks/nonexistingfile.txt';
         $this->filepath = __DIR__ . '/checks/file.txt';
         $this->backupFilePath = __DIR__ . '/checks/backup.txt';
@@ -46,7 +46,8 @@ class LumkiTest extends TestCase
         $response = Lumki::insertLine($this->filepath, $addAfterLine, $lineToAdd);
 
         $this->assertEquals("Line Added '$lineToAdd'", $response);
-        $this->assertTrue(Str::contains(file_get_contents($this->filepath), "$addAfterLine\n$lineToAdd"));
+        $content = str_replace("\r\n", "\n", file_get_contents($this->filepath));
+        $this->assertTrue(Str::contains($content, "$addAfterLine\n$lineToAdd"));
     }
 
     public function testItShouldShowInfoIfLineAddedToFileBefore()
@@ -56,7 +57,8 @@ class LumkiTest extends TestCase
         $response = Lumki::insertLine($this->filepath, $addBeforeLine, $lineToAdd, false);
 
         $this->assertEquals("Line Added '$lineToAdd'", $response);
-        $this->assertTrue(Str::contains(file_get_contents($this->filepath), "$lineToAdd\n$addBeforeLine"));
+        $content = str_replace("\r\n", "\n", file_get_contents($this->filepath));
+        $this->assertTrue(Str::contains($content, "$lineToAdd\n$addBeforeLine"));
     }
 
     public function testItShouldShowInfoIfLineNotAdded()
@@ -75,7 +77,8 @@ class LumkiTest extends TestCase
         $response = Lumki::insertLineAfter($this->filepath, $addAfterLine, $lineToAdd);
 
         $this->assertEquals("Line Added '$lineToAdd'", $response);
-        $this->assertTrue(Str::contains(file_get_contents($this->filepath), "$addAfterLine\n$lineToAdd"));
+        $content = str_replace("\r\n", "\n", file_get_contents($this->filepath));
+        $this->assertTrue(Str::contains($content, "$addAfterLine\n$lineToAdd"));
     }
 
     public function testItShouldShowInfoIfLineAddedToFileBeforeWithCustomFunction()
@@ -85,6 +88,7 @@ class LumkiTest extends TestCase
         $response = Lumki::insertLineBefore($this->filepath, $addBeforeLine, $lineToAdd);
 
         $this->assertEquals("Line Added '$lineToAdd'", $response);
-        $this->assertTrue(Str::contains(file_get_contents($this->filepath), "$lineToAdd\n$addBeforeLine"));
+        $content = str_replace("\r\n", "\n", file_get_contents($this->filepath));
+        $this->assertTrue(Str::contains($content, "$lineToAdd\n$addBeforeLine"));
     }
 }
